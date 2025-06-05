@@ -8,7 +8,8 @@ public class PLayerController : MonoBehaviour
     public bool isNodamage = false;        //�浹 �Ǵ�
                                            
     public GameObject[] Lives = new GameObject[3];  //생명 이미지 갯수따라서
-    
+    public TimeController timeController;
+
     public float moveSpeed = 5f;
     public float maxSpeed = 5f; // �ִ� �ӵ� ����
 
@@ -63,6 +64,11 @@ public class PLayerController : MonoBehaviour
             hp -= 1;                        
             isNodamage = true;                               //���� �ð� on
             
+        }
+
+        if(other.tag == "Goal")
+        {
+            timeController.isGoal = true;
         }
     }
 }
