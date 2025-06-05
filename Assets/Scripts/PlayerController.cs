@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PLayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     public int hp = 3;
@@ -57,15 +57,7 @@ public class PLayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy" && isNodamage == false)      //�����ð� ���� �¾�����
-        {
-            Debug.Log("��");
-            Lives[hp-1].SetActive(false);                    //맞을때마다 하나씩 목숨 이미지 제거
-            hp -= 1;                        
-            isNodamage = true;                               //���� �ð� on
-            
-        }
-
+       
         if(other.tag == "Goal")
         {
             timeController.isGoal = true;

@@ -1364,6 +1364,7 @@ MonoBehaviour:
   GoalTime: 30
   isGoal: 0
   timerText: {fileID: 589243760}
+  playerController: {fileID: 694085089}
 --- !u!1 &499742665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2051,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowDirection: {x: 0, y: 0, z: -1}
   flowStrength: 2
+--- !u!114 &694085089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4625380833621558866, guid: 75055de728d5a2545a250fc596a7b36d, type: 3}
+  m_PrefabInstance: {fileID: 5656654412483804492}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694085081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b235f7c91b978479e8b2ffab6c2b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704104056
 GameObject:
   m_ObjectHideFlags: 0

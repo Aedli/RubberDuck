@@ -7,9 +7,10 @@ public class ObstacleFloat : MonoBehaviour
     public float flowSpeed = 2f;
 
     private Rigidbody rb;
-
+    public PlayerController player;
     void Start()
     {
+       
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false; // �߷� ��Ȱ��ȭ (���� �� �ִ� ���¶� ����)
     }
@@ -29,6 +30,10 @@ public class ObstacleFloat : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            player = collision.gameObject.GetComponent<PlayerController>();
+            player.Lives[player.hp - 1].SetActive(false);
+            player.hp -= 1;
+            player.isNodamage = true;
         }
     }
 }

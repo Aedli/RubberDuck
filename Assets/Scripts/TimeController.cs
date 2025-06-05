@@ -6,6 +6,7 @@ public class TimeController : MonoBehaviour
     public float GoalTime = 30.0f;
     public bool isGoal = false;
     public GameObject timerText;
+    public PlayerController playerController;
     void Start()
     {
         
@@ -14,7 +15,11 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerController.hp <= 0)
+        {
+            Debug.Log("½ÇÆÐ");
+            Time.timeScale = 0f;
+        }
         GoalTime -= Time.deltaTime;
         if (isGoal == false && GoalTime < 0)
         {
