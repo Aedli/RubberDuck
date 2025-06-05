@@ -6,8 +6,9 @@ public class PLayerController : MonoBehaviour
     public int hp = 3;
     public float NodamageTime = 1.0f; //�����ð�
     public bool isNodamage = false;        //�浹 �Ǵ�
-                                           // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+                                           
+    public GameObject[] Lives = new GameObject[3];
+    
     public float moveSpeed = 5f;
     public float maxSpeed = 5f; // �ִ� �ӵ� ����
 
@@ -58,8 +59,10 @@ public class PLayerController : MonoBehaviour
         if(other.tag == "Enemy" && isNodamage == false)      //�����ð� ���� �¾�����
         {
             Debug.Log("��");
+            Lives[hp-1].SetActive(false);
             hp -= 1;
             isNodamage = true;                               //���� �ð� on
+            
         }
     }
 }
