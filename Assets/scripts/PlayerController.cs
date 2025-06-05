@@ -7,7 +7,7 @@ public class PLayerController : MonoBehaviour
     public float NodamageTime = 1.0f; //�����ð�
     public bool isNodamage = false;        //�浹 �Ǵ�
                                            
-    public GameObject[] Lives = new GameObject[3];
+    public GameObject[] Lives = new GameObject[3];  //생명 이미지 갯수따라서
     
     public float moveSpeed = 5f;
     public float maxSpeed = 5f; // �ִ� �ӵ� ����
@@ -59,8 +59,8 @@ public class PLayerController : MonoBehaviour
         if(other.tag == "Enemy" && isNodamage == false)      //�����ð� ���� �¾�����
         {
             Debug.Log("��");
-            Lives[hp-1].SetActive(false);
-            hp -= 1;
+            Lives[hp-1].SetActive(false);                    //맞을때마다 하나씩 목숨 이미지 제거
+            hp -= 1;                        
             isNodamage = true;                               //���� �ð� on
             
         }
