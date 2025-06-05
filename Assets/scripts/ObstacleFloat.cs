@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ObstacleFloat : MonoBehaviour
 {
-    public Vector3 flowDirection = new Vector3(0, 0, -1); // Èå¸£´Â ¹æÇâ
+    public Vector3 flowDirection = new Vector3(0, 0, -1); // ï¿½å¸£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public float flowSpeed = 2f;
 
     private Rigidbody rb;
@@ -11,13 +11,13 @@ public class ObstacleFloat : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = false; // Áß·Â ºñÈ°¼ºÈ­ (¹°¿¡ ¶° ÀÖ´Â »óÅÂ¶ó °¡Á¤)
+        rb.useGravity = false; // ï¿½ß·ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¶ï¿½ ï¿½ï¿½ï¿½ï¿½)
     }
 
     void FixedUpdate()
     {
-        // ÀÏÁ¤ÇÑ ¼Óµµ·Î ÀÌµ¿
-        rb.velocity = flowDirection.normalized * flowSpeed;
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+        rb.linearVelocity = flowDirection.normalized * flowSpeed;
     }
 
     void OnCollisionEnter(Collision collision)

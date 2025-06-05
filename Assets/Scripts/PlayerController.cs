@@ -4,12 +4,12 @@ public class PLayerController : MonoBehaviour
 {
 
     public int hp = 3;
-    public float NodamageTime = 1.0f; //¹«Àû½Ã°£
-    public bool isNodamage = false;        //Ãæµ¹ ÆÇ´Ü
+    public float NodamageTime = 1.0f; //ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+    public bool isNodamage = false;        //ï¿½æµ¹ ï¿½Ç´ï¿½
                                            // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public float moveSpeed = 5f;
-    public float maxSpeed = 5f; // ÃÖ´ë ¼Óµµ Á¦ÇÑ
+    public float maxSpeed = 5f; // ï¿½Ö´ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private Rigidbody rb;
     private Vector3 moveInput;
@@ -40,26 +40,26 @@ public class PLayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        // ÈûÀ» Áà¼­ ÀÌµ¿
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½à¼­ ï¿½Ìµï¿½
         rb.AddForce(moveInput * moveSpeed, ForceMode.Force);
 
-        // °¡¼Ó ¹æÁö: ¼öÆò ÀÌµ¿ ¼Óµµ¸¸ Á¦ÇÑ
-        Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         if (horizontalVelocity.magnitude > maxSpeed)
         {
             Vector3 limitedVelocity = horizontalVelocity.normalized * maxSpeed;
-            rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
+            rb.linearVelocity = new Vector3(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy" && isNodamage == false)      //¹«Àû½Ã°£ ÀÌÈÄ ¸Â¾ÒÀ»½Ã
+        if(other.tag == "Enemy" && isNodamage == false)      //ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾ï¿½ï¿½ï¿½ï¿½ï¿½
         {
-            Debug.Log("²è");
+            Debug.Log("ï¿½ï¿½");
             hp -= 1;
-            isNodamage = true;                               //¹«Àû ½Ã°£ on
+            isNodamage = true;                               //ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ on
         }
     }
 }
