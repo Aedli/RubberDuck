@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float maxSpeed = 5f; // �ִ� �ӵ� ����
+    private float originalMaxSpeed;
 
     private Rigidbody rb;
     private Vector3 moveInput;
@@ -62,5 +65,29 @@ public class PlayerController : MonoBehaviour
         {
             timeController.isGoal = true;
         }
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Item"))
+        {
+            StartCoroutine(SpeedBoost());
+            Destroy(col.gameObject);
+        }
+    }
+    IEnumerator SpeedBoost()
+    {
+        maxSpeed = 10f;
+
+        //현재 속도를 바로 10으로 올림
+        Vector3 boostDirection = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z).normalized;
+        rb.linearVelocity = boostDirection * maxSpeed + new Vector3(0, rb.linearVelocity.y, 0);
+
+        yield return new WaitForSeconds(5f);
+
+        maxSpeed = moveSpeed;
+
+        Vector3 slowDirection = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z).normalized;
+        rb.linearVelocity = slowDirection * maxSpeed + new Vector3(0, rb.linearVelocity.y, 0);
     }
 }
