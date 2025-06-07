@@ -7,18 +7,22 @@ public class ObstacleSpawner : MonoBehaviour
     public float spawnInterval = 2f;//생성 간격
     public float spawnRangeX = 5;// x좌표 랜덤 범위
     public float spawnOffsetZ = 20f;//플레이어 기준 앞쪽 생성 거리
-
+    public Intro intro;
     private float timer;
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if(timer >= spawnInterval)
+        if(intro.isIntroEnd == true)
         {
-            SpawnObstacle();
-            timer = 0f;
+            timer += Time.deltaTime;
+
+            if (timer >= spawnInterval)
+            {
+                SpawnObstacle();
+                timer = 0f;
+            }
         }
+        
     }
 
     void SpawnObstacle()

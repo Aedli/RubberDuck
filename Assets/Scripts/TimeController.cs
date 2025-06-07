@@ -7,6 +7,7 @@ public class TimeController : MonoBehaviour
     public bool isGoal = false;
     public GameObject timerText;
     public PlayerController playerController;
+    public Intro intro;
     void Start()
     {
         
@@ -21,7 +22,7 @@ public class TimeController : MonoBehaviour
             Time.timeScale = 0f;
             SoundManager.Instance.bgmSource.Stop();
         }
-        GoalTime -= Time.deltaTime;
+        
         if (isGoal == false && GoalTime < 0)
         {
             Debug.Log("실패");
@@ -33,7 +34,11 @@ public class TimeController : MonoBehaviour
             Debug.Log("목표 도달");
             Time.timeScale = 0f;
         }
-
+        if(intro.isIntroEnd == true)
+        {
+            GoalTime -= Time.deltaTime;
+        }
+     
         timerText.GetComponent<TextMeshProUGUI>().text = "TIME : " + GoalTime.ToString("F1");
     }
 
