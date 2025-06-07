@@ -8,6 +8,9 @@ public class Intro : MonoBehaviour
     public GameObject FadePannel;
     public GameObject[] intro_images = new GameObject[3];
     public bool isIntroEnd = false;
+    public GameObject ItemSpawner;
+    public GameObject BirdSpawner;
+    public GameObject ObstacleSpawner;
     float fadeCount = 0;
 
     private void Start()
@@ -42,7 +45,9 @@ public class Intro : MonoBehaviour
         }
         isIntroEnd = true;
         //Destroy(FadePannel);
-        
+        ItemSpawner.SetActive(true);
+        BirdSpawner.SetActive(true);
+        ObstacleSpawner.SetActive(true);
 
     }
 }

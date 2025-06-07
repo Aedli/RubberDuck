@@ -1951,7 +1951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &657716136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,6 +2995,9 @@ MonoBehaviour:
   - {fileID: 1412485568}
   - {fileID: 415353769}
   isIntroEnd: 0
+  ItemSpawner: {fileID: 1873333349}
+  BirdSpawner: {fileID: 657716135}
+  ObstacleSpawner: {fileID: 1060267148}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,7 +3354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1060267149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6454,7 +6457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1873333350
 MonoBehaviour:
   m_ObjectHideFlags: 0
