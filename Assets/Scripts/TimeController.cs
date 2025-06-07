@@ -19,12 +19,14 @@ public class TimeController : MonoBehaviour
         {
             Debug.Log("½ÇÆÐ");
             Time.timeScale = 0f;
+            SoundManager.Instance.bgmSource.Stop();
         }
         GoalTime -= Time.deltaTime;
         if (isGoal == false && GoalTime < 0)
         {
             Debug.Log("½ÇÆÐ");
             Time.timeScale = 0f;
+            SoundManager.Instance.bgmSource.Stop();
         }
         if (isGoal)
         {
@@ -33,5 +35,13 @@ public class TimeController : MonoBehaviour
         }
 
         timerText.GetComponent<TextMeshProUGUI>().text = "TIME : " + GoalTime.ToString("F1");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SoundManager.Instance.bgmSource.Stop(); // BGM ²û
+        }
     }
 }
