@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8015787961098487605}
   - component: {fileID: 413567398058201354}
+  - component: {fileID: -3964452977099178425}
+  - component: {fileID: -5810859716657115974}
   m_Layer: 0
   m_Name: Goose
   m_TagString: Enemy
@@ -27,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8559613181641594555}
   m_Father: {fileID: 0}
@@ -53,7 +55,49 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.38, y: 2.39, z: 2.31}
-  m_Center: {x: 0, y: 2.4, z: 0.67}
+  m_Center: {x: 0, y: 1.5, z: 0.67}
+--- !u!54 &-3964452977099178425
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480894023115086364}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-5810859716657115974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480894023115086364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4522092367f6a45a46f4dda2fb8b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowDirection: {x: 0, y: 0, z: -1}
+  flowSpeed: 2
+  player: {fileID: 4625380833621558866, guid: 75055de728d5a2545a250fc596a7b36d, type: 3}
 --- !u!1001 &8161476540056662352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2ec7f60404775f47a23953dbd924b1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.58
+      value: -9.61
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2ec7f60404775f47a23953dbd924b1f, type: 3}
       propertyPath: m_LocalPosition.z

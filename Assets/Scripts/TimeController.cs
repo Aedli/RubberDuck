@@ -3,9 +3,11 @@ using TMPro;
 
 public class TimeController : MonoBehaviour
 {
-    public float GoalTime = 30.0f;
+    public float GoalTime = 60.0f;
     public bool isGoal = false;
     public GameObject timerText;
+    public GameObject GameOverImg;
+    public GameObject EndingImg;
     public PlayerController playerController;
     public Intro intro;
     void Start()
@@ -21,6 +23,7 @@ public class TimeController : MonoBehaviour
             Debug.Log("실패");
             Time.timeScale = 0f;
             SoundManager.Instance.bgmSource.Stop();
+            GameOverImg.SetActive(true);
         }
         
         if (isGoal == false && GoalTime < 0)
@@ -28,11 +31,13 @@ public class TimeController : MonoBehaviour
             Debug.Log("실패");
             Time.timeScale = 0f;
             SoundManager.Instance.bgmSource.Stop();
+            GameOverImg.SetActive(true);
         }
         if (isGoal)
         {
             Debug.Log("목표 도달");
             Time.timeScale = 0f;
+            EndingImg.SetActive(true);
         }
         if(intro.isIntroEnd == true)
         {
@@ -47,6 +52,7 @@ public class TimeController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SoundManager.Instance.bgmSource.Stop(); // BGM 끔
+            isGoal = true;
         }
     }
 }
