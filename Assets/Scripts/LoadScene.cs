@@ -9,6 +9,6 @@ public class LoadScenePro : MonoBehaviour
     {
         
         SceneManager.LoadScene("GameScene");
-        Time.timeScale = 1.0f;
+        
     }
 }

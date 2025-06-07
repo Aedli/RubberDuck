@@ -2977,6 +2977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setting_UI: {fileID: 462842629}
   setting_Enabled: 0
+  intro: {fileID: 946666663}
 --- !u!114 &946666663
 MonoBehaviour:
   m_ObjectHideFlags: 0

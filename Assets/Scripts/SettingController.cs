@@ -6,7 +6,7 @@ public class SettingController : MonoBehaviour
 {
     public GameObject setting_UI;
     public bool setting_Enabled = false;
-
+    public Intro intro;
     public void LoadToMain()
     {
         SceneManager.LoadScene("MainMenu");
@@ -19,18 +19,22 @@ public class SettingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && setting_Enabled == false)
+        if(intro.isIntroEnd)
         {
-            setting_UI.SetActive(true);
-            setting_Enabled = true;
-            Time.timeScale = 0f;
+            if (Input.GetKeyDown(KeyCode.Escape) && setting_Enabled == false)
+            {
+                setting_UI.SetActive(true);
+                setting_Enabled = true;
+                Time.timeScale = 0f;
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && setting_Enabled == true)
+            {
+                setting_UI.SetActive(false);
+                setting_Enabled = false;
+                Time.timeScale = 1.0f;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && setting_Enabled == true)
-        {
-            setting_UI.SetActive(false);
-            setting_Enabled = false;
-            Time.timeScale = 1.0f;
-        }
+        
 
     }
 }
