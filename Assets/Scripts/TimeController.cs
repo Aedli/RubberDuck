@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
@@ -7,12 +9,17 @@ public class TimeController : MonoBehaviour
     public bool isGoal = false;
     public GameObject timerText;
     public GameObject GameOverImg;
-    public GameObject EndingImg;
+    public GameObject[] ending_Imgs = new GameObject[2];
+    public GameObject FadePannel;
+
     public PlayerController playerController;
+    public GameObject ItemSpawner;
+    public GameObject BirdSpawner;
+    public GameObject ObstacleSpawner;
     public Intro intro;
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -36,10 +43,11 @@ public class TimeController : MonoBehaviour
         if (isGoal)
         {
             Debug.Log("¸ñÇ¥ µµ´Þ");
-            Time.timeScale = 0f;
-            EndingImg.SetActive(true);
+            
+            
+
         }
-        if(intro.isIntroEnd == true)
+        if(intro.isIntroEnd == true && isGoal != true)
         {
             GoalTime -= Time.deltaTime;
         }
@@ -52,7 +60,29 @@ public class TimeController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SoundManager.Instance.bgmSource.Stop(); // BGM ²û
-            isGoal = true;
+            StartCoroutine(EndingCoroutine());
+            ItemSpawner.SetActive(false);
+            BirdSpawner.SetActive(false);
+            ObstacleSpawner.SetActive(false);
         }
+    }
+
+    public IEnumerator EndingCoroutine()
+    {
+        FadePannel.SetActive(true);
+
+        for (int i = 0; i < ending_Imgs.Length; i++)
+        {
+            GameObject image = ending_Imgs[i];
+            for (float f = 0f; f < 2; f += 0.01f)
+            {
+                Color c = image.GetComponent<Image>().color;
+                c.a = f;
+                image.GetComponent<Image>().color = c;
+                yield return null;
+            }
+            yield return new WaitForSeconds(2);
+        }
+        yield return new WaitForSeconds(1);
     }
 }
