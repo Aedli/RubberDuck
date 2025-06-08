@@ -11,6 +11,7 @@ public class Intro : MonoBehaviour
     public GameObject ItemSpawner;
     public GameObject BirdSpawner;
     public GameObject ObstacleSpawner;
+    public GameObject GooseSpawner;
     float fadeCount = 0;
 
     private void Start()
@@ -48,6 +49,6 @@ public class Intro : MonoBehaviour
         ItemSpawner.SetActive(true);
         BirdSpawner.SetActive(true);
         ObstacleSpawner.SetActive(true);
-
+        GooseSpawner.SetActive(true);
     }
 }

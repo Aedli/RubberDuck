@@ -2925,6 +2925,7 @@ MonoBehaviour:
   ItemSpawner: {fileID: 1873333349}
   BirdSpawner: {fileID: 657716135}
   ObstacleSpawner: {fileID: 1060267148}
+  GooseSpawner: {fileID: 977931020}
 --- !u!1001 &959798583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3219,6 +3220,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 408584833334677455, guid: f5a25ce826b191a488244faefa290f38, type: 3}
   m_PrefabInstance: {fileID: 970752105}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &977931020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977931022}
+  - component: {fileID: 977931021}
+  m_Layer: 0
+  m_Name: GooseSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &977931021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977931020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c084a2a556aa45d43b3b71f29596cb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 480894023115086364, guid: ef9bd3bb97e427a4c865d540851f7e94, type: 3}
+  playerTransform: {fileID: 694085085}
+  spawnInterval: 5
+  spawnRangeX: 4
+  spawnOffsetZ: 20
+  intro: {fileID: 946666663}
+--- !u!4 &977931022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977931020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000461424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,10 +3475,9 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 3797283785719888762, guid: af4bf15ddf570ea4c97d19075a512f90, type: 3}
   - {fileID: 6842441050643023977, guid: 5d3893e39f884214b9017bb1901c28e9, type: 3}
-  - {fileID: 480894023115086364, guid: ef9bd3bb97e427a4c865d540851f7e94, type: 3}
   playerTransform: {fileID: 694085085}
   spawnInterval: 2
-  spawnRangeX: 5
+  spawnRangeX: 4
   spawnOffsetZ: 20
   intro: {fileID: 946666663}
 --- !u!4 &1060267150
@@ -7106,3 +7157,4 @@ SceneRoots:
   - {fileID: 1873333351}
   - {fileID: 1530654137}
   - {fileID: 959798583}
+  - {fileID: 977931022}
